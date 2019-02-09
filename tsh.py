@@ -73,6 +73,7 @@ def sort_tsh(people):
 
     return people_updated
 
+
 def get_diagnosis(people):
     """Diagnose patient given TSH results
 
