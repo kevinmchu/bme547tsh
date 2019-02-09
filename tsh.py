@@ -51,6 +51,22 @@ def read_text_file(filename):
     return people
 
 def get_diagnosis(people):
+    """Diagnose patient given TSH results
+
+    get_diagnosis takes a list of dictionaries that contain
+    information from various individuals. The function extracts
+    the results for the tsh key. If the person has any test
+    results < 1.0, they are diagnosed with hyperthyroidism.
+    If they have any test results > 4.0, they are diagnosed with
+    hypothyroidism. Otherwise, they are diagnosed as having normal
+    thyroid function.
+
+    Args:
+        people (list): list of dictionaries with personal info
+
+    Returns:
+        people (list): same as input but with diagnosis key-values added
+    """
     for person in people:
         if float(min(person["tsh"])) < 1.0:
             person["diagnosis"] = "hyperthyroidism"
