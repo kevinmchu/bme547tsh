@@ -35,10 +35,12 @@ def read_text_file(filename):
                 names = line.split(" ")
                 person["firstname"] = names[0]
                 person["lastname"] = names[1]
-            elif i % 4 == 2:
-                person["age"] = line
-            elif i % 4 == 3:
-                person["gender"] = line
+            elif i % 4 == 2 or i % 4 == 3:
+                # Some age/gender lines are mixed up
+                if line.isnumeric():
+                    person["age"] = line
+                else:
+                    person["gender"] = line
             else:
                 results = line.split(",")
                 person["tsh"] = results[1:]
