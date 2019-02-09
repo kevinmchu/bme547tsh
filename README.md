@@ -6,7 +6,7 @@ The python files are tsh.py and test_test.py
 
 ## tsh.py
 
-This program takes a txt file containing personal information. To change the read in file, go to the if __name__ == "__main__" section and replace filename with the correct name of the file.  The txt file must be formatted as follows:
+This program takes a txt file containing personal information from several patients. To change the read in file, go to the if __name__ == "__main__" section and replace filename with the correct name of the file.  The txt file must be formatted as follows:
 
 ```
 Firstname Lastname
