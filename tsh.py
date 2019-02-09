@@ -26,7 +26,7 @@ def read_text_file(filename):
 
     # We create the person dictionary and store info as key-value pairs
     for line in fileobj:
-        line = line.replace("\n", "") # strip newlines
+        line = line.replace("\n", "")  # strip newlines
         if line == "END":
             break
         else:
@@ -43,12 +43,13 @@ def read_text_file(filename):
                 results = line.split(",")
                 person["tsh"] = results[1:]
                 people.append(person)
-                
-            i+=1
+
+            i += 1
 
     fileobj.close()
 
     return people
+
 
 def get_diagnosis(people):
     """Diagnose patient given TSH results
@@ -65,17 +66,20 @@ def get_diagnosis(people):
         people (list): list of dictionaries with personal info
 
     Returns:
-        people (list): same as input but with diagnosis key-values added
+        people_updated (list): same as input but with diagnosis key-values
     """
+    people_updated = []
     for person in people:
         if float(min(person["tsh"])) < 1.0:
             person["diagnosis"] = "hyperthyroidism"
-        elif float(min(person["tsh"])) > 4.0:
+        elif float(max(person["tsh"])) > 4.0:
             person["diagnosis"] = "hypothyroidism"
         else:
             person["diagnosis"] = "normal thyroid function"
 
-    return people
+        people_updated.append(person)
+
+    return people_updated
 
 if __name__ == "__main__":
     filename = "test_data.txt"
