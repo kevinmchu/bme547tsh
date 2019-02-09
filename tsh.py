@@ -81,8 +81,32 @@ def get_diagnosis(people):
 
     return people_updated
 
+
+def save_diagnoses(people):
+    """Save patient information to json file
+
+    save_diagnoses takes a list of dictionaries that contains
+    information from various individuals. The function saves
+    the information from each patient in their own json file.
+
+    Args:
+        people (list): list of dictionaries with personal info
+
+    Returns:
+        nothing
+    """
+    import json
+    for person in people:
+        filename = person["firstname"] + "-" + person["lastname"]
+        save_file = open(filename, "w")
+        json.dump(person, save_file)
+        save_file.close()
+
+    return
+
+
 if __name__ == "__main__":
     filename = "test_data.txt"
     people = read_text_file(filename)
     people = get_diagnosis(people)
-    print(people)
+    save_diagnoses(people)
