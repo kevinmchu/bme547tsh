@@ -53,6 +53,27 @@ def read_text_file(filename):
     return people
 
 
+def sort_tsh(people):
+    """Sort tsh results in ascending order
+
+    sort_tsh takes a list of dictionaries that contains
+    information from various individuals. The function takes
+    the TSH results and sorts them in ascending order.
+
+    Args:
+        people (list): list of dictionaries with personal info
+
+    Returns:
+        people_updated (list): list with sorted TSH results
+    """
+    people_updated = []
+    for person in people:
+        (person["tsh"]).sort()
+        people_updated.append(person)
+
+    return people_updated
+
+
 def get_diagnosis(people):
     """Diagnose patient given TSH results
 
@@ -110,5 +131,6 @@ def save_diagnoses(people):
 if __name__ == "__main__":
     filename = "test_data.txt"
     people = read_text_file(filename)
+    people = sort_tsh(people)
     people = get_diagnosis(people)
     save_diagnoses(people)
