@@ -1,3 +1,7 @@
+# test_tsh.py
+# Author: Kevin Chu
+# Last Modified: 2/9/19
+
 import pytest
 from tsh import get_diagnosis
 
@@ -27,6 +31,18 @@ from tsh import get_diagnosis
                                                          7.2, 3.5, 2.9]}],
                                                "hypothyroidism")])
 def test_get_diagnosis(people, expected):
+    """Test the get_diagnosis function
+
+    test_get_diagnosis performs unit tests on
+    the get_diagnosis function from tsh.py.
+
+    Args:
+        people (list): list of dictionaries
+        expected: the expected diagnosis
+
+    Returns:
+        nothing
+    """
     people_updated = get_diagnosis(people)
     answer = (people_updated[0])["diagnosis"]
 

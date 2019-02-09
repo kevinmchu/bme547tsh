@@ -1,3 +1,8 @@
+# tsh.py
+# Author: Kevin Chu
+# Last Modified: 2/9/19
+
+
 def read_text_file(filename):
     """Read personal information from given file
 
