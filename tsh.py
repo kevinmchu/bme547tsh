@@ -50,6 +50,19 @@ def read_text_file(filename):
 
     return people
 
+def get_diagnosis(people):
+    for person in people:
+        if float(min(person["tsh"])) < 1.0:
+            person["diagnosis"] = "hyperthyroidism"
+        elif float(min(person["tsh"])) > 4.0:
+            person["diagnosis"] = "hypothyroidism"
+        else:
+            person["diagnosis"] = "normal thyroid function"
+
+    return people
+
 if __name__ == "__main__":
     filename = "test_data.txt"
     people = read_text_file(filename)
+    people = get_diagnosis(people)
+    print(people)
