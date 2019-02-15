@@ -55,6 +55,7 @@ from tsh import get_diagnosis
                                               ([{"firstname": "Monte",
                                                  "lastname": "Swarup",
                                                  "age": "51",
+                                                 "gender": "Male",
                                                  "tsh": [2.4, 3.1, 3.5, 3.6,
                                                          3.2, 3.3, 3.5, 3.8,
                                                          4.1, 3.6, 3.7, 3.8]}],
